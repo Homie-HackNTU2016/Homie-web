@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    if request.
+    """Index view."""
+    return render(request, 'index.html')
