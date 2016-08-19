@@ -1,0 +1,93 @@
+body {
+    background-color: #f9f9f9;
+}
+
+#main {
+    padding-left: 240px;
+}
+
+footer {
+    padding-left: 240px;
+}
+
+footer.page-footer {
+    padding-top: 0px;
+}
+
+select {
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    height: 3rem;
+    border-bottom: 1px solid #9e9e9e;
+}
+
+nav {
+    background-color: #3F51B5 !important;
+}
+
+#sidenav-overlay {
+    background-color: transparent;
+}
+
+.container {
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    max-width: 100% !important;
+    width: 98%;
+}
+
+#left-sidebar-nav {
+    position: fixed;
+    width: 100px;
+    left: 180px;
+    z-index: 999;
+    height: auto;
+}
+
+#left-sidebar-nav span.badge.new {
+    line-height: 20px;
+    margin-top: 11px;
+}
+
+#content .header-search-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+header .brand-logo img {
+    width: 172px;
+}
+
+.card {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 2200px) {
+}
+
+@media screen and (max-width: 1800px) {
+}
+
+@media screen and (max-width: 1600px) {
+}
+
+@media screen and (max-width: 1224px) {
+}
+
+@media screen and (min-width: 992px) {
+    ul.side-nav.leftside-navigation {
+        top: 64px !important;
+    }
+}
+
+@media screen and (max-width: 720px) {
+}
+
+@media screen and (max-width: 480px) {
+}
