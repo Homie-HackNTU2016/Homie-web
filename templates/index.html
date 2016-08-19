@@ -30,11 +30,21 @@
 
 		  <aside id="left-sidebar-nav">
         <ul id="slide-out" class="side-nav fixed leftside-navigation">
-        	<li><div class="userView">
-		      <img class="background" src="{% static "img/header.png" %}">
-		      <a href="#!user"><img class="circle" src="{% static "img/profile.png" %}"></a>
-		      <a href="#!name"><span class="white-text name">John Doe</span></a>
-		      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a></div></li>
+        	<li>
+        		<div class="userView">
+        	{% if user %}
+        			<img class="background" src="{% static "img/header.png" %}">
+		      		<a href="#!user"><img class="circle" src="{% static "img/profile.png" %}"></a>
+		      		<a href="#!name"><span class="white-text name">John Doe</span></a>
+		      		<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+		      {% else %}
+		      		<img class="background" src="{% static "img/header.png" %}">
+		      		<a href="#!user"><img class="circle" src="{% static "img/profile.png" %}"></a>
+		      		<a href="#!signin"><span class="white-text name">Log In</span></a> | 
+		      		<a href="#!signup"><span class="white-text email">Sign Up</span></a>
+		      {% endif %}
+		      	</div>
+		      </li>
 		    	<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
 		    	<li><a href="#!">Second Link</a></li>
 		    	<li><div class="divider"></div></li>
