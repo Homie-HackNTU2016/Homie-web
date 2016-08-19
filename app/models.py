@@ -15,7 +15,7 @@ class Users(models.Model):
 
 
 class Products(models.Model):
-    user = models.ForeignKey(Users, on_delete=models.CASCADE())
+    user = models.ForeignKey(Users)
     name = models.TextField()
     price = models.IntegerField()
     available = models.BooleanField()
