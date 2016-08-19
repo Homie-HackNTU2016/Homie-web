@@ -11,8 +11,8 @@ def login(request):
 
         response = 0
         user = authenticate(
-            username='aji',
-            password='homiehomie',
+            username=request.POST.get('username'),
+            password=request.POST.get('password'),
         )
         if user:
             _login(request, user)
