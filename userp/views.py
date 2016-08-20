@@ -50,3 +50,16 @@ def profiles(request, userid):
             ),
             content_type='application/json'
         )
+
+
+def user(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated():
+            userprofile = get_object_or_404(UserProfile, id=request.user.id)
+            products = list(userprofile.products_set.values())
+            output = userprofile.__dict__
+            output.pop('_state', None)
+            output['products'] = products
+            return render(request, 'profile.html', {'userProfile': userprofile, 'products': products})
+        else:
+            return render(request, 'login.html')
