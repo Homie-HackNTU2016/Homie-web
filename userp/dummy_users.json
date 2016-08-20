@@ -49,7 +49,7 @@
         "pictures": "http://magimg.chinayes.com/Mags/zbsj/20100712/Article/Content/201010231930240377930.jpg",
         "pub_date": "2016-08-10",
         "update_date": "2016-08-15"
-      },
+      },
       { "user": "陳湘婷",
         "name": "摩托車",
         "price": 600,
@@ -60,7 +60,7 @@
         "pictures": "https://s.yimg.com/xd/api/res/1.2/xb.TyX80gi2GJ.jtjdDXUg--/YXBwaWQ9eXR3YXVjdGlvbnNlcnZpY2U7aD01NjE7cT04NTtyb3RhdGU9YXV0bzt3PTcwMDtwPW9wZW5jdg--/http://nevec-img.zenfs.com/prod/tw_ec05-7/1e710334-af2c-4115-a7f8-6b1584a3a2b9.jpg",
         "pub_date": "2016-08-10",
         "update_date": "2016-08-11"
-      },
+      },
       { "user": "王左妹",
         "name": "狼嚎",
         "price": 100,
@@ -71,5 +71,5 @@
         "pictures": "http://image.wangchao.net.cn/bt/1272050401485.jpg",
         "pub_date": "2016-08-16",
         "update_date": "2016-08-18"
-      } ]
+      } ]
 } ]

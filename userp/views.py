@@ -5,9 +5,7 @@ from datetime import datetime
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
-
-
-from .models import UserProfile
+from django.contrib.auth.models import User
 
 
 def login(request):
@@ -36,10 +34,10 @@ def logout(request):
 def profiles(request, userid):
     """Operatoin for user profile."""
     if request.method == 'GET':
-        userprofile = get_object_or_404(UserProfile, id=userid)
-        products = list(userprofile.products_set.values())
-        output = userprofile.__dict__
-        output.pop('_state', None)
+        user = get_object_or_404(User, id=userid)
+        products = list(user.userprofile.products_set.values())
+        output = user.userprofile.__dict__
+        output = {k: v for k, v in output.iteritems() if not k.startswith('_')}
         output['products'] = products
         return HttpResponse(
             json.dumps(
