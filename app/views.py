@@ -9,5 +9,5 @@ from userp.models import Products
 def index(request):
     """Index view."""
     if request.method == 'GET':
-        products = get_object_or_404(Products.objects.values())
+        products = get_object_or_404(Products.objects.all())
     return render(request, 'index.html', {'products': products})
