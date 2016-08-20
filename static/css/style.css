@@ -66,10 +66,10 @@ nav {
 }
 
 .container {
-    padding: 0 0.5rem;
+    padding: 0;
     margin: 0 auto;
     max-width: 100% !important;
-    width: 98%;
+    width: 100%;
 }
 
 #left-sidebar-nav {
@@ -121,7 +121,8 @@ header .brand-logo img {
     ul.side-nav.leftside-navigation {
         top: 64px !important;
     }
-    .main-content {
+    .main-content,
+    .profile-content {
         padding-left: 305px;
     }
 }
@@ -137,4 +138,19 @@ header .brand-logo img {
 
 @media screen and (max-width: 480px) {
 
+}
+
+.profile-content .header {
+    background-image: url('../img/header.png');
+    height: 280px;
+}
+
+.profile-content .basic-info {
+    margin-top: -100px;
+}
+
+.profile-content .avatar {
+    margin-top: -75px;
+    border:2px solid #408fd2;
+    height: 150px;
 }

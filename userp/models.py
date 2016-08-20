@@ -11,6 +11,7 @@ class UserProfile(models.Model):
     """User profile."""
 
     user = models.OneToOneField(User, unique=True)
+    photo = models.URLField()
     location = models.TextField()
     register_date = models.DateTimeField(default=datetime.now)
     updated_date = models.DateTimeField(default=datetime.now)

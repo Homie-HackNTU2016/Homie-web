@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block main_content %}
+<div class="container profile-content">
+	<div class="row">
+		<div class="col s12 header"></div>
+		
+		<div class="col s12">
+			<div class="col s11 offset-s1"><img class="circle avatar" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></div>
+			<div class="col s8 offset-s4 basic-info">
+				<h1>{{request.user.username}}</h1>
+				<h6>{{request.user.email}}</h6>
+			</div>
+		</div>
+
+		<div class="col s10 offset-s1">
+			{% for product in products %}
+
+				<div class="col s4 m6 l4">
+		      <div class="card sticky-action">
+		        <div class="card-image">
+		          <img src="{{product.pictures}}">
+		          <span class="card-title">{{product.name}}</span>
+		        </div>
+		        <div class="card-content">
+		          <p class="truncate">I am a very simple card. I am good at containing small bits of information.
+		          I am convenient because I require little markup to use effectively.</p>
+		        </div>
+		        <div class="card-action">
+		          <a href="#">Details</a>
+		          <span class="right price">{{product.price}} | {{product.required_hour}} hr</span>
+		        </div>
+		      </div>
+		    </div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock main_content %}
