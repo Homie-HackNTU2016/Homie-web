@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^profile', views.user, name='user'),
     url(r'^products/', views.products, name='products'),
     url(r'^rank/', views.rank, name='rank'),
+    url(r'^legends/', views.legend, name='legends'),
 ]

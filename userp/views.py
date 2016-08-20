@@ -98,6 +98,12 @@ def user(request):
             return render(request, 'login.html')
 
 
+def legend(request):
+    if request.method == 'GET':
+        products = Products.objects.all()
+        return render(request, 'legend.html', {'products': products})
+
+
 @csrf_exempt
 def rank(request):
     """Rank view."""

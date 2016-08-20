@@ -142,7 +142,8 @@ header .brand-logo img {
     }
     .main-content,
     .profile-content,
-    .detail-content {
+    .detail-content,
+    .legend-content {
         padding-left: 305px;
     }
 }
@@ -214,4 +215,8 @@ header .brand-logo img {
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
+}
+
+.carousel-slider {
+    height: 260px !important;
 }
