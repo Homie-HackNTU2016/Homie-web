@@ -42,22 +42,22 @@ dummy = [
         "updated_date": datetime(2016, 8, 15),
         "products": [
             {
-                "name": "蝴蝶",
+                "name": "金工-蝴蝶",
                 "price": 250,
                 "available": True,
                 "amount": 5,
-                "required_hour": 8.0,
+                "required_hour": 12.0,
                 "likes": 50,
                 "pictures": "http://magimg.chinayes.com/Mags/zbsj/20100712/Article/Content/201010231930240377930.jpg",
                 "pub_date": datetime(2016, 8, 10),
                 "update_date": datetime(2016, 8, 15)
             },
             {
-                "name": "摩托車",
+                "name": "金工-摩托車",
                 "price": 600,
                 "available": False,
                 "amount": 0,
-                "required_hour": 24.0,
+                "required_hour": 32.0,
                 "likes": 100,
                 "pictures": "https://s.yimg.com/xd/api/res/1.2/xb.TyX80gi2GJ.jtjdDXUg--/YXBwaWQ9eXR3YXVjdGlvbnNlcnZpY2U7aD01NjE7cT04NTtyb3RhdGU9YXV0bzt3PTcwMDtwPW9wZW5jdg--/http://nevec-img.zenfs.com/prod/tw_ec05-7/1e710334-af2c-4115-a7f8-6b1584a3a2b9.jpg",
                 "pub_date": datetime(2016, 8, 10),
