@@ -212,3 +212,7 @@ header .brand-logo img {
 .highcharts-background {
     fill: transparent;
 }
+
+.carousel-slider {
+    height: 260px !important;
+}

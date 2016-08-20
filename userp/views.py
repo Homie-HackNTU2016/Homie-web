@@ -99,8 +99,9 @@ def user(request):
 
 
 def legend(request):
-    if request == 'GET':
-        return render(request, 'legend.html')
+    if request.method == 'GET':
+        products = Products.objects.all()
+        return render(request, 'legend.html', {'products': products})
 
 
 @csrf_exempt

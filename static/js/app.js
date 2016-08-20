@@ -3,7 +3,6 @@
 ;(function(document, window, index) {
 	$('.button-collapse').sideNav();
 	$('.modal-trigger').leanModal();
-	$('#chart-container').highcharts(highchartsData);
 	$('.carousel.carousel-slider').carousel({full_width: true});
 
 	var searchField = $('#search');
