@@ -98,6 +98,11 @@ def user(request):
             return render(request, 'login.html')
 
 
+def legend(request):
+    if request == 'GET':
+        return render(request, 'legend.html')
+
+
 @csrf_exempt
 def rank(request):
     """Rank view."""

@@ -26,7 +26,7 @@
 			{% for product in products %}
 
 				<div class="col s12 m6 l4" ng-repeat="product in products">
-		      <div class="card sticky-action">
+		      <div class="card sticky-action hoverable">
 		        <div class="card-image">
 		          <a href="/product/{{product.id}}"><img src="{{product.pictures}}"></a>
 		          <a href="/product/{{product.id}}"><span class="card-title">{{product.name}}</span></a>
@@ -40,11 +40,13 @@
 		        </div>
 		      </div>
 		    </div>
+
 			{% endfor %}
 		</div>
 	</div>
 </div>
 
+{% block extra_scripts %}
 <script type="text/javascript">
 var highchartsData = {
     chart: {
@@ -91,4 +93,5 @@ var highchartsData = {
     }
 };
 </script>
+{% endblock extra_scripts %}
 {% endblock main_content %}

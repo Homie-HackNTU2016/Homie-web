@@ -142,7 +142,8 @@ header .brand-logo img {
     }
     .main-content,
     .profile-content,
-    .detail-content {
+    .detail-content,
+    .legend-content {
         padding-left: 305px;
     }
 }
