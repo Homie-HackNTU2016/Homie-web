@@ -97,6 +97,10 @@ header .brand-logo img {
     overflow: hidden;
 }
 
+.price:before {
+    content: "$";
+}
+
 @media screen and (max-width: 2200px) {
 }
 
@@ -112,6 +116,9 @@ header .brand-logo img {
 @media screen and (min-width: 992px) {
     ul.side-nav.leftside-navigation {
         top: 64px !important;
+    }
+    .main-content {
+        padding-left: 305px;
     }
 }
 
