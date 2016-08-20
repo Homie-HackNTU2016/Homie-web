@@ -31,7 +31,7 @@ nav {
 
 .search-wrapper {
     padding-top: 10px;
-    margin-left: calc(0% + 280px);
+    padding-left: calc(0% + 280px);
     transition: margin .25s ease;
 }
 
@@ -43,7 +43,7 @@ nav {
     display: block;
     font-size: 16px;
     font-weight: 300;
-    width: 75%;
+    width: 85%;
     height: 45px;
     margin: 0;
     padding: 0 45px 0 15px;
@@ -55,6 +55,10 @@ nav {
     top: 0px;
     right: 10px;
     cursor: pointer;
+}
+
+#search {
+    color: white;
 }
 
 #sidenav-overlay {
@@ -132,9 +136,5 @@ header .brand-logo img {
 }
 
 @media screen and (max-width: 480px) {
-    .search-wrapper {
-        padding-top: 10px;
-        margin-left: calc(0% + 150px);
-        transition: margin .25s ease;
-    }
+
 }
