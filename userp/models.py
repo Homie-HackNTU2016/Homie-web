@@ -27,6 +27,7 @@ class Products(models.Model):
     available = models.BooleanField()
     amount = models.IntegerField()
     required_hour = models.FloatField()
+    description = models.TextField()
     likes = models.IntegerField()
     liked_by = models.ManyToManyField(User)
     pictures = models.TextField()
