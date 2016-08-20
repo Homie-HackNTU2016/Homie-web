@@ -4,8 +4,10 @@ from datetime import datetime
 
 dummy = [
     {
-        "username": "吳子琳",
+        "username": "homie",
         "location": "台北市信義區",
+        "avatar": "https://randomuser.me/api/portraits/women/35.jpg",
+        "likes": 4200,
         "email": 'foo@gmail.com',
         "register_date": datetime(2016, 8, 11),
         "updated_date": datetime(2016, 8, 12),
@@ -37,6 +39,8 @@ dummy = [
     {
         "username": "陳湘婷",
         "location": "台北市大安區",
+        "avatar": "https://randomuser.me/api/portraits/women/23.jpg",
+        "likes": 5000,
         "email": "bar@yahoo.com.tw",
         "register_date": datetime(2016, 8, 10),
         "updated_date": datetime(2016, 8, 15),
@@ -69,6 +73,8 @@ dummy = [
         "username": "王左妹",
         "email": "baz@hotmail.com",
         "location": "台北市中山區",
+        "avatar": "https://randomuser.me/api/portraits/women/71.jpg",
+        "likes": 5503,
         "register_date": datetime(2016, 8, 13),
         "updated_date": datetime(2016, 8, 20),
         "products": [

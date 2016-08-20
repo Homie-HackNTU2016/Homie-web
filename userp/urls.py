@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^profiles/(?P<userid>\d+)', views.profiles, name='profiles'),
     url(r'^profile', views.user, name='user'),
     url(r'^products/', views.products, name='products'),
+    url(r'^rank/', views.rank, name='rank'),
 ]
