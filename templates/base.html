@@ -33,7 +33,7 @@
               <div class="userView">
               {% if user.is_authenticated %}
                 <img class="background" src="{% static "img/header.png" %}">
-                <a href="userp"><img class="circle" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></a>
+                <a href="profile"><img class="circle" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></a>
                 <a href="#!name"><span class="white-text name">{{request.user.username}}</span></a>
                 <a href="#!email"><span class="white-text email">{{request.user.email}}</span></a>
                 <p><a href="{% url 'logout' %}"><span class="white-text name">登出</a></p>
@@ -44,10 +44,12 @@
               {% endif %}
               </div>
             </li>
-            <li><a href="#!">Second Link</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#!" class="waves-effect">Order History</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            <li><a href="profile" class="waves-effect">Account</a></li>
+            <li><a href="#settings!" class="waves-effect">Settings</a></li>
+            {% endif %}
           </ul>
         </aside>
       </header>

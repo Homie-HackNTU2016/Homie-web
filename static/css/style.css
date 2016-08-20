@@ -26,7 +26,19 @@ select {
 }
 
 nav {
-    background-color: #3F51B5 !important;
+    background-color: #FFA000 !important;
+}
+
+.zero-padding {
+    padding-right: 0 !important;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.icon-heart {
+    color: crimson;
 }
 
 .search-wrapper {
@@ -150,13 +162,17 @@ header .brand-logo img {
 }
 
 .profile-content .basic-info {
-    margin-top: -100px;
+    margin-top: -90px;
 }
 
 .profile-content .avatar {
     margin-top: -75px;
     border:2px solid #408fd2;
     height: 150px;
+}
+
+.detail-content {
+
 }
 
 .detail-content .product-image {

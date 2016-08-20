@@ -15,21 +15,24 @@
 		</div>
 
 		<div class="col s10 offset-s1">
+			<hr>
+		</div>
+
+		<div class="col s10 offset-s1">
 			{% for product in products %}
 
-				<div class="col s12 m6 l4">
+				<div class="col s12 m6 l4" ng-repeat="product in products">
 		      <div class="card sticky-action">
 		        <div class="card-image">
-		          <img src="{{product.pictures}}">
-		          <span class="card-title">{{product.name}}</span>
+		          <a href="/product/{{product.id}}"><img src="{{product.pictures}}"></a>
+		          <a href="/product/{{product.id}}"><span class="card-title">{{product.name}}</span></a>
 		        </div>
 		        <div class="card-content">
-		          <p class="truncate">I am a very simple card. I am good at containing small bits of information.
-		          I am convenient because I require little markup to use effectively.</p>
+		          <p class="truncate"></p>
 		        </div>
 		        <div class="card-action">
-		          <a href="#">Details</a>
-		          <span class="right price">{{product.price}} | {{product.required_hour}} hr</span>
+		          <a href="/product/{{product.id}}">Details</a> <i class="material-icons tiny icon-heart">favorite</i> <span>{{product.likes}}</span>
+		          <span class="right price-hour">{{product.price}} | <i class="material-icons tiny">query_builder</i> {{product.required_hour}} hr</span>
 		        </div>
 		      </div>
 		    </div>
