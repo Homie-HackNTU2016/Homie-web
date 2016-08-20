@@ -82,9 +82,13 @@
 {% block extra_scripts %}
 <script>
 function like(id) {
-  $.post('{% url "products" %}', {id: id}, function(resp) {
-    $('#like_count').text(parseInt($('#like_count').text()) + parseInt(resp));
-  })
+  {% if user.is_authenticated %}
+    $.post('{% url "products" %}', {id: id}, function(resp) {
+      $('#like_count').text(parseInt($('#like_count').text()) + parseInt(resp));
+    })
+  {% else %}
+    Materialize.toast('請先登入！', 4000)
+  {% endif %}
 }
 </script>
 {% endblock extra_scripts %}
