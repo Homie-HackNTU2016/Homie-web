@@ -211,3 +211,7 @@ header .brand-logo img {
 .highcharts-background {
     fill: transparent;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
