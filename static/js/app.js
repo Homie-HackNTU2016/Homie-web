@@ -1,8 +1,9 @@
 'use strict'
 
 ;(function(document, window, index) {
-	$(".button-collapse").sideNav();
+	$('.button-collapse').sideNav();
 	$('.modal-trigger').leanModal();
+	$('#chart-container').highcharts(highchartsData);
 
 	var searchField = $('#search');
 	searchField.focus(function() {
