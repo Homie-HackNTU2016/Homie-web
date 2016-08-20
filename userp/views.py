@@ -53,7 +53,6 @@ def profiles(request, userid):
         )
 
 
-@login_required
 def products(request):
     """Operation for products."""
     q = request.GET.get('q')
