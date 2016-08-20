@@ -48,3 +48,7 @@ def profiles(request, userid):
             ),
             content_type='application/json'
         )
+
+
+def user(request):
+    return render(request, 'profile.html')

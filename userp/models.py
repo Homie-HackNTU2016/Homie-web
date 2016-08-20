@@ -12,6 +12,7 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, unique=True)
     location = models.TextField()
+    photo = models.URLField()
     register_date = models.DateTimeField(default=datetime.now)
     updated_date = models.DateTimeField(default=datetime.now)
 
@@ -29,3 +30,9 @@ class Products(models.Model):
     pictures = models.TextField()
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('date updated')
+
+
+class History(models.Model):
+    user = models.ForeignKey(UserProfile)
+    p_id = models.IntegerField()
+    created = models.DateTimeField()
