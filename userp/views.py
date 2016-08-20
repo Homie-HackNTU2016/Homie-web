@@ -1,7 +1,13 @@
 """Views for app."""
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+import json
+
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
+from django.core.serializers.json import DjangoJSONEncoder
+
+
+from .models import UserProfile
 
 
 def login(request):
@@ -25,3 +31,14 @@ def logout(request):
     """Logout view."""
     _logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def profiles(request, userid):
+    """Operatoin for user profile."""
+    if request.method == 'GET':
+        userprofile = get_object_or_404(UserProfile, id=userid)
+        products = list(userprofile.products_set.values())
+        output = userprofile.__dict__
+        output.pop('_state', None)
+        output['products'] = products
+        return HttpResponse(json.dumps(output, cls=DjangoJSONEncoder), content_type='application/json')

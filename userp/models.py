@@ -1,6 +1,8 @@
 """User model."""
 from __future__ import unicode_literals
 
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -10,8 +12,8 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, unique=True)
     location = models.TextField()
-    register_date = models.DateTimeField('date registered')
-    updated_date = models.DateTimeField('date updated')
+    register_date = models.DateTimeField(default=datetime.now)
+    updated_date = models.DateTimeField(default=datetime.now)
 
 
 class Products(models.Model):
@@ -27,4 +29,3 @@ class Products(models.Model):
     pictures = models.TextField()
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('date updated')
-
