@@ -6,6 +6,7 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_obj
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
 from django.contrib.auth.models import User
+from .models import Products
 
 
 def login(request):
@@ -53,8 +54,8 @@ def profiles(request, userid):
 def user(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
-            userprofile = get_object_or_404(User, id=request.user.id)
-            products = list(userprofile.products_set.values())
-            return render(request, 'profile.html', {'userProfile': userprofile, 'products': products})
+            user = get_object_or_404(User, id=request.user.id)
+            products = list(user.userprofile.products_set.values())
+            return render(request, 'profile.html', {'userProfile': user, 'products': products})
         else:
             return render(request, 'login.html')

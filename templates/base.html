@@ -35,7 +35,7 @@
               <div class="userView">
               {% if user.is_authenticated %}
                 <img class="background" src="{% static "img/header.png" %}">
-                <a href="#!user"><img class="circle" src="{% static "" %}img/avatar/{{request.user.id}}.jpg"></a>
+                <a href="userp"><img class="circle" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></a>
                 <a href="#!name"><span class="white-text name">{{request.user.username}}</span></a>
                 <a href="#!email"><span class="white-text email">{{request.user.email}}</span></a>
                 <p><a href="{% url 'logout' %}"><span class="white-text name">登出</a></p>

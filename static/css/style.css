@@ -101,7 +101,11 @@ header .brand-logo img {
     overflow: hidden;
 }
 
-.price:before {
+.price-hour i {
+    vertical-align: middle;
+}
+
+.price-hour:before {
     content: "$";
 }
 
