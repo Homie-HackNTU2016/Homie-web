@@ -30,4 +30,9 @@ class Products(models.Model):
     pictures = models.TextField()
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('date updated')
-    ordered = models.ManyToManyField(UserProfile)
+
+
+class History(models.Model):
+    user = models.ForeignKey(UserProfile)
+    p_id = models.IntegerField()
+    created = models.DateTimeField()
