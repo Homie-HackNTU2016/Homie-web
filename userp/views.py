@@ -55,21 +55,37 @@ def profiles(request, userid):
         )
 
 
+@csrf_exempt
 def products(request):
     """Operation for products."""
-    q = request.GET.get('q')
-    output = Products.objects.all().filter(name__contains=q)
-    output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
+    if request.method == 'GET':
+        q = request.GET.get('q')
+        output = Products.objects.all().filter(name__contains=q)
+        output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
 
-    return HttpResponse(
-        json.dumps(
-            output,
-            indent=4,
-            sort_keys=True,
-            default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
-        ),
-        content_type='application/json'
-    )
+        return HttpResponse(
+            json.dumps(
+                output,
+                indent=4,
+                sort_keys=True,
+                default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
+            ),
+            content_type='application/json'
+        )
+
+    elif request.method == 'POST':
+        username = request.user.get_username()
+        user = User.objects.get(username=username)
+        product = Products.objects.get(id=request.POST.get('id'))
+        if product.liked_by.filter(username=username):
+            response = -1
+            product.liked_by.remove(user)
+        else:
+            response = 1
+            product.liked_by.add(user)
+        product.likes = product.likes + response
+        product.save()
+        return HttpResponse(response)
 
 
 def user(request):

@@ -28,6 +28,7 @@ class Products(models.Model):
     amount = models.IntegerField()
     required_hour = models.FloatField()
     likes = models.IntegerField()
+    liked_by = models.ManyToManyField(User)
     pictures = models.TextField()
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('date updated')
