@@ -5,9 +5,9 @@ from datetime import datetime
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
-
-
-from .models import UserProfile
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .models import Products
 
 
 def login(request):
@@ -33,10 +33,11 @@ def logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+@login_required
 def profiles(request, userid):
     """Operatoin for user profile."""
     if request.method == 'GET':
-        userprofile = get_object_or_404(UserProfile, id=userid)
+        userprofile = get_object_or_404(User, id=userid)
         products = list(userprofile.products_set.values())
         output = userprofile.__dict__
         output.pop('_state', None)
@@ -52,14 +53,32 @@ def profiles(request, userid):
         )
 
 
+@login_required
+def products(request):
+    """Operation for products."""
+    q = request.GET.get('q')
+
+    if q:
+        output = Products.objects.all().filter(name__contains=q)
+        output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
+    else:
+        output = []
+    return HttpResponse(
+        json.dumps(
+            output,
+            indent=4,
+            sort_keys=True,
+            default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
+        ),
+        content_type='application/json'
+    )
+
+
 def user(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
-            userprofile = get_object_or_404(UserProfile, id=request.user.id)
-            products = list(userprofile.products_set.values())
-            output = userprofile.__dict__
-            output.pop('_state', None)
-            output['products'] = products
-            return render(request, 'profile.html', {'userProfile': userprofile, 'products': products})
+            user = get_object_or_404(User, id=request.user.id)
+            products = list(user.userprofile.products_set.values())
+            return render(request, 'profile.html', {'userProfile': user, 'products': products})
         else:
             return render(request, 'login.html')
