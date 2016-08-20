@@ -1,12 +1,33 @@
 {% extends "base.html" %}
 
 {% block main_content %}
+<!--
 <form id="login-form">{% csrf_token %}
     <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="password">
     <button>Submit</button>
 </form>
-
+-->
+<br>
+<div class="row">
+    <form id="login-form" class="container col l6 offset-l4">
+    {% csrf_token %}
+        <div class="input-field col s12 m12 l12">
+          <input value="" id="username" type="text" class="validate">
+          <label class="active" for="username">使用者</label>
+        </div>
+        <div class="input-field col s12 m12 l12">
+          <input value="" id="password" type="password" class="validate">
+          <label class="active" for="password">密碼</label>
+        </div>
+        <div class="input-field col s12 m12 l12">
+             <button class="btn waves-effect waves-light" type="submit" name="action">登入
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+  </div>       
+        
 {% endblock main_content %}
 
 {% block extra_scripts %}
@@ -15,12 +36,15 @@
     $('#login-form').submit(function(e) {
         e.preventDefault();
         var post_data = {
-            username: $('[name="username"]').val(),
-            password: $('[name="password"]').val(),
+            username: $('#username').val(),
+            password: $('#password').val(),
             csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').attr('value'),
         };
         $.post('{% url "login" %}', post_data, function(resp) {
             console.log(resp);
+            if (resp) {
+                window.location.href = '{% url "index" %}';
+            }
         })
     })
 </script>

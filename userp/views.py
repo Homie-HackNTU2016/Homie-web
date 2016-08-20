@@ -1,5 +1,6 @@
 """Views for app."""
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
 
 
@@ -23,4 +24,4 @@ def login(request):
 def logout(request):
     """Logout view."""
     _logout(request)
-    return HttpResponse(1)
+    return HttpResponseRedirect(reverse('index'))
