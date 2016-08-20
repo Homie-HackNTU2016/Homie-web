@@ -1,15 +1,28 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block ng_settings %}
+ng-app="indexApp"
+ng-controller="IndexCtrl"
+{% endblock ng_settings %}
+
+{% block extra_navbar %}
+<div class="search-wrapper">
+  <input id="search" type="search" ng-model="q" required>
+  <label for="search"><i class="material-icons white-text" >search</i></label>
+</div>
+{% endblock extra_navbar %}
+
+
 {% block main_content %}
-<div class="container main-content">
+<div class="container main-content" ng-app="indexApp" ng-controller="IndexCtrl">
   <div class="row">
 
-  {% for product in products %}
-    <div class="col s12 m6 l4">
+  {% verbatim %}
+    <div class="col s12 m6 l4" ng-repeat="product in products">
       <div class="card sticky-action">
         <div class="card-image">
-          <img src="{{product.pictures}}">
+          <img ng-src="{{product.pictures}}">
           <span class="card-title">{{product.name}}</span>
         </div>
         <div class="card-content">
@@ -21,7 +34,30 @@
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% endverbatim %}
   </div>
 </div>
 {% endblock main_content %}
+
+{% block extra_scripts %}
+<script>
+var app = angular.module('indexApp', []);
+app.controller('IndexCtrl', function($scope, $http) {
+  $http.get('{% url "products" %}', {params: {q: ''}})
+    .then(function(resp) {
+      $scope.products = resp.data;
+    })
+
+  $scope.$watch('q', function(newVal, oldVal) {
+    if (newVal != oldVal) {
+      newVal = newVal ? newVal : '';
+      $http.get('{% url "products" %}', {params: {q: newVal}})
+        .then(function(resp) {
+          $scope.products = resp.data;
+        })
+    }
+  })
+
+});
+</script>
+{% endblock extra_scripts %}

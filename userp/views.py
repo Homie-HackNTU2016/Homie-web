@@ -52,16 +52,12 @@ def profiles(request, userid):
         )
 
 
-@login_required
 def products(request):
     """Operation for products."""
     q = request.GET.get('q')
+    output = Products.objects.all().filter(name__contains=q)
+    output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
 
-    if q:
-        output = Products.objects.all().filter(name__contains=q)
-        output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
-    else:
-        output = []
     return HttpResponse(
         json.dumps(
             output,
@@ -73,7 +69,6 @@ def products(request):
     )
 
 
-
 def user(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
@@ -82,4 +77,3 @@ def user(request):
             return render(request, 'profile.html', {'userProfile': user, 'products': products})
         else:
             return render(request, 'login.html')
-
