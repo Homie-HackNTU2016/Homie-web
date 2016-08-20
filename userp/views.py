@@ -1,10 +1,10 @@
 """Views for app."""
 import json
+from datetime import datetime
 
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
-from django.core.serializers.json import DjangoJSONEncoder
 
 
 from .models import UserProfile
@@ -41,4 +41,12 @@ def profiles(request, userid):
         output = userprofile.__dict__
         output.pop('_state', None)
         output['products'] = products
-        return HttpResponse(json.dumps(output, cls=DjangoJSONEncoder), content_type='application/json')
+        return HttpResponse(
+            json.dumps(
+                output,
+                indent=4,
+                sort_keys=True,
+                default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
+            ),
+            content_type='application/json'
+        )

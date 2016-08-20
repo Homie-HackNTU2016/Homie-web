@@ -29,3 +29,4 @@ class Products(models.Model):
     pictures = models.TextField()
     pub_date = models.DateTimeField('date published')
     update_date = models.DateTimeField('date updated')
+    ordered = models.ManyToManyField(UserProfile)
