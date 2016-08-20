@@ -196,3 +196,18 @@ header .brand-logo img {
 .detail-content .publisher .item p {
     margin-top: 5px;
 }
+
+.chart-wrapper {
+    margin-top: 25px;
+}
+
+#chart-container {
+    min-width: 200px;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.highcharts-background {
+    fill: transparent;
+}
