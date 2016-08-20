@@ -11,7 +11,8 @@ class UserProfile(models.Model):
     """User profile."""
 
     user = models.OneToOneField(User, unique=True)
-    photo = models.URLField()
+    avatar = models.URLField()
+    likes = models.IntegerField(default=0)
     location = models.TextField()
     register_date = models.DateTimeField(default=datetime.now)
     updated_date = models.DateTimeField(default=datetime.now)
