@@ -6,6 +6,7 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_obj
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models import Products
 
 
@@ -31,7 +32,7 @@ def logout(request):
     _logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-
+@login_required
 def profiles(request, userid):
     """Operatoin for user profile."""
     if request.method == 'GET':
@@ -51,6 +52,28 @@ def profiles(request, userid):
         )
 
 
+@login_required
+def products(request):
+    """Operation for products."""
+    q = request.GET.get('q')
+
+    if q:
+        output = Products.objects.all().filter(name__contains=q)
+        output = [{k: v for k, v in i.__dict__.iteritems() if not k.startswith('_')} for i in output]
+    else:
+        output = []
+    return HttpResponse(
+        json.dumps(
+            output,
+            indent=4,
+            sort_keys=True,
+            default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
+        ),
+        content_type='application/json'
+    )
+
+
+
 def user(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
@@ -59,3 +82,4 @@ def user(request):
             return render(request, 'profile.html', {'userProfile': user, 'products': products})
         else:
             return render(request, 'login.html')
+

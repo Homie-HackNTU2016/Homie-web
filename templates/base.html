@@ -61,6 +61,26 @@
       {% load static %}
       <script type="text/javascript" src="{% static "js/materialize.min.js" %}"></script>
       <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+      <script>
+      $(document).ready(function() {
+        $('#search').bind('input keyup paste', function(){
+            var $this = $(this);
+            var delay = 500;
+
+            clearTimeout($this.data('timer'));
+            $this.data('timer', setTimeout(function(){
+                $this.removeData('timer');
+                var q = $this.val();
+                if (q) {
+                  $.get('{% url "products" %}', {q: $this.val()}, function(resp) {
+                    console.log(resp);
+                  })
+                }
+            }, delay));
+        });
+
+      })
+      </script>
       {% block extra_scripts %}
       {% endblock extra_scripts %}
     </body>
