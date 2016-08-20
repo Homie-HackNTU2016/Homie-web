@@ -2,6 +2,7 @@
 
 ;(function(document, window, index) {
 	$(".button-collapse").sideNav();
+	$('.modal-trigger').leanModal();
 
 	var searchField = $('#search');
 	searchField.focus(function() {
@@ -36,5 +37,7 @@
 			});
 		}
 	});
+
+
 
 }(document, window, 0));

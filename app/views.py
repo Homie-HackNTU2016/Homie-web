@@ -16,5 +16,5 @@ def product(request, pid):
     if request.method == 'GET':
         product = get_object_or_404(Products.objects.values(), id=pid)
         uid = product.get('user_id')
-        user = get_object_or_404(User, id=uid)
-        return render(request, 'product_detail.html', {'product': product, 'user': user})
+        owner = get_object_or_404(User, id=uid)
+        return render(request, 'product_detail.html', {'product': product, 'owner': owner})
