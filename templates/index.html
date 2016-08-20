@@ -7,8 +7,8 @@
     <div class="col s12 m6 l4">
       <div class="card sticky-action">
         <div class="card-image">
-          <img src="{% static "img/sample.jpg" %}">
-          <span class="card-title">Card Title</span>
+          <img src="{{products.pictures}}">
+          <span class="card-title">{{products.name}}</span>
         </div>
         <div class="card-content">
           <p class="truncate">I am a very simple card. I am good at containing small bits of information.
@@ -16,45 +16,10 @@
         </div>
         <div class="card-action">
           <a href="#">Details</a>
-          <span class="right price">200</span>
+          <span class="right price">{{products.price}} | {{products.required_hour}} hr</span>
         </div>
       </div>
     </div>
-
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img src="{% static "img/sample.jpg" %}">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p class="truncate">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Details</a>
-          <span class="right price">250</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img src="{% static "img/sample.jpg" %}">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p class="truncate">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Details</a>
-          <span class="right price">300</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 {% endblock main_content %}
