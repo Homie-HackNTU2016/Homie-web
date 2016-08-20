@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block ng_settings %}
+ng-app="rankApp"
+ng-controller="RankCtrl"
+{% endblock ng_settings %}
+
+{% block extra_navbar %}
+<div class="search-wrapper">
+  <input id="search" type="search" ng-model="q" required>
+  <label for="search"><i class="material-icons white-text" >search</i></label>
+</div>
+{% endblock extra_navbar %}
+
+
+{% block main_content %}
+<div class="container main-content">
+  {% verbatim %}
+  <div class="row" ng-repeat="level in ['top', 'mid', 'low']">
+    <h1 class="center">{{level|momLevel}}</h1>
+    <div class="col s12 m6 l3" ng-repeat="user in users[level]">
+      <div class="small card sticky-action">
+        <div class="card-image">
+          <img ng-src="{{user.avatar}}">
+          <span class="card-title">{{user.username}}</span>
+        </div>
+        <div class="card-content">
+          <p class="truncate"></p>
+        </div>
+        <div class="card-action">
+          <span class="right"> {{user.likes}} <i class="material-icons tiny">thumb_up</i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endverbatim %}
+</div>
+{% endblock main_content %}
+
+{% block extra_scripts %}
+<script>
+var app = angular.module('rankApp', []);
+app.controller('RankCtrl', function($scope, $http) {
+    $http.post('{% url "rank" %}')
+        .then(function(resp) {
+            $scope.users = resp.data;
+        })
+});
+app.filter('momLevel', function() {
+    return function(input) {
+        var ref = {
+            top: '魔法師媽媽',
+            mid: '洪荒力媽媽',
+            low: '進擊的媽媽',
+        };
+        return ref[input];
+    };
+});
+</script>
+{% endblock extra_scripts %}

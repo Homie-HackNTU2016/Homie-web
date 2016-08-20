@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login as _login, logout as _logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import Products
 
 
@@ -78,3 +80,37 @@ def user(request):
             return render(request, 'profile.html', {'userProfile': user, 'products': products})
         else:
             return render(request, 'login.html')
+
+
+@csrf_exempt
+def rank(request):
+    """Rank view."""
+    if request.method == 'GET':
+        return render(request, 'rank.html')
+    elif request.method == 'POST':
+        con = []
+        for u in User.objects.all().order_by('-userprofile__likes')[:36]:
+            con.append(
+                {
+                    'username': u.username,
+                    'likes': u.userprofile.likes,
+                    'avatar': u.userprofile.avatar,
+                }
+            )
+
+        top, mid, low = [con[i:i + 12] for i in range(0, len(con), 12)]
+        output = {
+            'top': top,
+            'mid': mid,
+            'low': low,
+        }
+
+        return HttpResponse(
+            json.dumps(
+                output,
+                indent=4,
+                sort_keys=True,
+                default=lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, datetime) else x,
+            ),
+            content_type='application/json'
+        )
