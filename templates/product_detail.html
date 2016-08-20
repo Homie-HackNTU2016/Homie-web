@@ -12,7 +12,19 @@
 			</div>
       <div class="col s10">
         <p><i class="material-icons icon-heart">favorite</i> <span>{{product.likes}}</span></p>
-        <p>Offerred by: <a href="{% url 'profiles' user.id %}">{{user.username}}</a></p>
+        <div class="publisher">
+          <div class="item">
+            <p>Offerred by:</p>
+          </div>
+          <div class="item">
+            <a href="{% url 'profiles' user.id %}">
+              <div class="chip">
+                <img src="{% static "img/avatar/" %}{{user.id}}.jpg" alt="Contact Person">
+                {{user.username}}
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 		</div>
 
