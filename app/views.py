@@ -14,7 +14,13 @@ def index(request):
 
 def product(request, pid):
     if request.method == 'GET':
-        product = get_object_or_404(Products.objects.values(), id=pid)
-        uid = product.get('user_id')
-        owner = get_object_or_404(User, id=uid)
-        return render(request, 'product_detail.html', {'product': product, 'owner': owner})
+        product = get_object_or_404(Products, id=pid)
+        owner = {
+            'id': product.user.id,
+            'username': product.user.user.username,
+            'avatar': product.user.avatar,
+        }
+        print('---------------')
+        print(product.user.avatar)
+        print('---------------')
+        return render(request, 'product_detail.html', {'product': product.__dict__, 'owner': owner})
