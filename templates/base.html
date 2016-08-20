@@ -33,7 +33,7 @@
               <div class="userView">
               {% if user.is_authenticated %}
                 <img class="background" src="{% static "img/header.png" %}">
-                <a href="userp"><img class="circle" src="{{request.user.userprofile.avatar}}"></a>
+                <a href="{% url "user" %}"><img class="circle" src="{{request.user.userprofile.avatar}}"></a>
                 <a href="#!name"><span class="white-text name">{{request.user.username}}</span></a>
                 <a href="#!email"><span class="white-text email">{{request.user.email}}</span></a>
                 <p><a href="{% url 'logout' %}"><span class="white-text name">登出</a></p>
@@ -46,6 +46,7 @@
             </li>
             <li><a href="{% url 'rank' %}"><i class="tiny material-icons">equalizer</i>媽媽排行榜</a></li>
             <li><div class="divider"></div></li>
+            <li><a href=""><i class="tiny material-icons">equalizer</i>家務傳說</a></li>
           </ul>
         </aside>
       </header>

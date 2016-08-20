@@ -19,7 +19,7 @@
           <div class="item">
             <a href="{% url 'profiles' owner.id %}">
               <div class="chip">
-                <img src="{% static "img/avatar/" %}{{owner.id}}.jpg" alt="Contact Person">
+                <img src="{{request.user.userprofile.avatar}}" alt="Contact Person">
                 {{owner.username}}
               </div>
             </a>

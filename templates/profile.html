@@ -7,7 +7,7 @@
 		<div class="col s12 header"></div>
 		
 		<div class="col s12">
-			<div class="col s11 offset-s1"><img class="circle avatar" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></div>
+			<div class="col s11 offset-s1"><img class="circle avatar" src="{{request.user.userprofile.avatar}}"></div>
 			<div class="col s5 offset-s6 m5 offset-m4 l5 offset-l4 basic-info">
 				<h3>{{request.user.username}}</h3>
 				<h6>{{request.user.email}}</h6>
