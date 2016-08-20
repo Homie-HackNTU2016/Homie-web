@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block main_content %}
+<div class="container profile-content">
+	<div class="row">
+		<div class="col s12 header"></div>
+		
+		<div class="col s12">
+			<div class="col s11 offset-s1"><img class="circle avatar" src="{% static "img/avatar/" %}{{request.user.id}}.jpg"></div>
+			<div class="col s10 offset-s2"><h1>{{request.user.username}}</h1></div>
+		</div>
+
+		<div class="col s12">
+			{% for product in products %}
+				
+				{{ product.name }}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock main_content %}
