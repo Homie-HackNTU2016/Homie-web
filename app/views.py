@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_list_or_404
-
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_list_or_404, get_object_or_404
 from userp.models import Products
 
 # Create your views here.
@@ -9,10 +8,11 @@ from userp.models import Products
 def index(request):
     """Index view."""
     if request.method == 'GET':
-        products = get_list_or_404(Products.objects.all())
-    return render(request, 'index.html', {'products': products})
+        products = Products.objects.all()
+        return render(request, 'index.html', {'products': products})
 
 
-def product(request):
+def product(request, pid):
     if request.method == 'GET':
-        return render(request, 'product_detail.html')
+        product = get_object_or_404(Products.objects.values(), id=pid)
+        return render(request, 'product_detail.html', {'product': product})

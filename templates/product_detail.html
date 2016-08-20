@@ -2,13 +2,20 @@
 {% load staticfiles %}
 
 {% block main_content %}
-<div class="container profile-content">
+<div class="container detail-content">
 	<div class="row">
 		
+		<div class="col s12">
+			<img class="product-image" src="{{product.pictures}}">
+			<div class="col s11">
+				<h5>{{product.name}} <span class="price-hour right">{{product.price}}</span></h5>
+			</div>
+		</div>
+
 		<!-- Floating Action Button -->
         <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
             <a class="btn-floating btn-large">
-              <i class="mdi-action-stars"></i>
+              <i class="material-icons">add</i>
             </a>
             <ul>
               <li><a href="css-helpers.html" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>

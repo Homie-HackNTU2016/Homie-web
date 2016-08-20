@@ -32,6 +32,7 @@ def logout(request):
     _logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+
 @login_required
 def profiles(request, userid):
     """Operatoin for user profile."""
