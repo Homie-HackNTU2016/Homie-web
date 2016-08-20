@@ -32,6 +32,8 @@ class Products(models.Model):
 
 
 class History(models.Model):
-    user = models.ForeignKey(UserProfile)
-    p_id = models.IntegerField()
-    created = models.DateTimeField()
+    """Bought history."""
+
+    user = models.ForeignKey(User)
+    product = models.ForeignKey(Products)
+    ordered_time = models.DateTimeField(default=datetime.now)

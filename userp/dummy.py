@@ -91,7 +91,13 @@ dummy = [
     }
 ]
 
-if __name__ == '__main__':
+
+def reset():
+    """Reset db."""
+    try:
+        User.objects.all().delete()
+    except:
+        pass
     for dic in dummy:
         username = dic.pop('username')
         email = dic.pop('email')
@@ -103,3 +109,6 @@ if __name__ == '__main__':
             profile.products_set.create(**product)
         profile.save()
         user.save()
+
+if __name__ == '__main__':
+    reset()
