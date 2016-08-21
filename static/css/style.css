@@ -220,3 +220,7 @@ header .brand-logo img {
 .carousel-slider {
     height: 260px !important;
 }
+
+.modal-header {
+    margin: 10px 10px 0 10px;
+}

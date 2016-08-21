@@ -26,7 +26,7 @@ ng-controller="IndexCtrl"
           <a href="/product/{{product.id}}"><span class="card-title">{{product.name}}</span></a>
         </div>
         <div class="card-content">
-          <p class="truncate"></p>
+          <p class="truncate">{{product.description}}</p>
         </div>
         <div class="card-action">
           <a href="/product/{{product.id}}">更多</a> <i class="material-icons tiny icon-heart">favorite</i> <span>{{product.likes}}</span>
