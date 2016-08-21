@@ -6,13 +6,20 @@ ng-app="rankApp"
 ng-controller="RankCtrl"
 {% endblock ng_settings %}
 
+{% block extra_navbar %}
+<div class="search-wrapper">
+  <input id="search" type="search" ng-model="q" required>
+  <label for="search"><i class="material-icons white-text" >search</i></label>
+</div>
+{% endblock extra_navbar %}
+
 
 {% block main_content %}
 <div class="container main-content" ng-cloak>
   {% verbatim %}
   <div class="row" ng-repeat="level in ['top', 'mid', 'low']">
     <h3 class="col s12 m12 l12 center">{{level|momLevel}}</h3>
-    <div class="col s12 m6 l3" ng-repeat="user in users[level]">
+    <div class="col s12 m6 l3" ng-repeat="user in users[level]|filter:q">
       <div class="card sticky-action">
         <div class="card-image">
           <img ng-src="{{user.avatar}}">
@@ -41,6 +48,7 @@ app.controller('RankCtrl', function($scope, $http) {
             $scope.users = resp.data;
         })
 });
+
 app.filter('momLevel', function() {
     return function(input) {
         var ref = {
