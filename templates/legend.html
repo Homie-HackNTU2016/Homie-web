@@ -9,7 +9,7 @@
 	    {% for product in products %}
 	    <div class="carousel-item white-text" style="background-image:url('{{product.pictures}}');background-repeat:no-repeat;background-size:100% auto;background-position:center top; color:rgb(255,255,255,0.5)" href="#one!">
 	      <h2>{{product.name}}</h2>
-	      <p class="white-text">Challenge Yourself!</p>
+	      <p class="white-text">{{product.description}}!</p>
 	    </div>
 	    {% endfor %}
 
