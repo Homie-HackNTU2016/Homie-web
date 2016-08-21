@@ -30,7 +30,7 @@ dummy = [
                 "available": True,
                 "amount": 4,
                 "required_hour": 5.0,
-                "description": "以中國結手工編織黑天鵝",
+                "description": "以中國結手工編織之黑天鵝",
                 "likes": 33,
                 "pictures": "http://web.dfps.tp.edu.tw/~t87140/cgi-bin/photo615/%A4%A4%B0%EA%B5%B2%A7@%AB~/%A4%A4%B0%EA%B5%B2---%A4%D1%C3Z.JPG",
                 "pub_date": datetime(2016, 8, 12),
