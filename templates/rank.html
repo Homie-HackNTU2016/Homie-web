@@ -19,7 +19,7 @@ ng-controller="RankCtrl"
           <span class="card-title">{{user.username}}</span>
         </div>
         <div class="card-content">
-          <p class="truncate">{{level|momLevel}}</p>
+          <p class="truncate">最強技能：{{''|skills}}</p>
         </div>
         <div class="card-action">
           <span class="left"> {{$index + 1}} <i class="material-icons tiny">grade</i></span>
@@ -49,6 +49,12 @@ app.filter('momLevel', function() {
             low: '進擊的媽媽',
         };
         return ref[input];
+    };
+});
+app.filter('skills', function() {
+    return function(input) {
+      var skills = ['打掃', '洗衣', '丟垃圾', '帶孩子', '遛狗', '煮飯', '寄包裹', '買菜', '煮飯'];
+        return skills[Math.floor(Math.random()*skills.length)];
     };
 });
 </script>
