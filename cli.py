@@ -13,6 +13,18 @@ dummy = [
         "updated_date": datetime(2016, 8, 12),
         "products": [
             {
+                "name": "準備愛心便當",
+                "price": 100,
+                "available": True,
+                "amount": 5,
+                "required_hour": 3.0,
+                "description": "在忙碌的現代生活中來點媽媽的愛心~",
+                "likes": 77,
+                "pictures": "http://www.bentoubako.net/contestform02/img/156.jpg",
+                "pub_date": datetime(2016, 8, 11),
+                "update_date": datetime(2016, 8, 11)
+            },
+            {
                 "name": "幸運手環-無限",
                 "price": 45,
                 "available": True,
@@ -65,7 +77,7 @@ dummy = [
                 "available": False,
                 "amount": 0,
                 "required_hour": 32.0,
-                "description": "以金屬工藝打造出帥氣的摩托車，適合裝飾書桌",
+                "description": "以回收之金屬打造出帥氣的摩托車，適合裝飾書桌",
                 "likes": 100,
                 "pictures": "https://s.yimg.com/xd/api/res/1.2/xb.TyX80gi2GJ.jtjdDXUg--/YXBwaWQ9eXR3YXVjdGlvbnNlcnZpY2U7aD01NjE7cT04NTtyb3RhdGU9YXV0bzt3PTcwMDtwPW9wZW5jdg--/http://nevec-img.zenfs.com/prod/tw_ec05-7/1e710334-af2c-4115-a7f8-6b1584a3a2b9.jpg",
                 "pub_date": datetime(2016, 8, 10),
