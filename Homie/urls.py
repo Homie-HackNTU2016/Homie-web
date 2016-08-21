@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', app.views.index, name='index'),
     url(r'^userp/', include('userp.urls')),
-    url(r'^product/(?P<pid>\d+)', app.views.product),
+    url(r'^product/(?P<pid>\d+)', app.views.product, name='product'),
 ]
