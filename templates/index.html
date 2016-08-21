@@ -22,14 +22,14 @@ ng-controller="IndexCtrl"
     <div class="col s12 m4 l4" ng-repeat="product in products" ng-cloak>
       <div class="card sticky-action hoverable">
         <div class="card-image">
-          <a href="{% url 'product' product.id %}"><img ng-src="{{product.pictures}}"></a>
-          <a href="{% url 'product' product.id %}"><span class="card-title">{{product.name}}</span></a>
+          <a href="/product/{{product.id}}"><img ng-src="{{product.pictures}}"></a>
+          <a href="/product/{{product.id}}"><span class="card-title">{{product.name}}</span></a>
         </div>
         <div class="card-content">
           <p class="truncate">{{product.description}}</p>
         </div>
         <div class="card-action">
-          <a href="{% url 'product' product.id %}">更多</a> <i class="material-icons tiny icon-heart">favorite</i> <span>{{product.likes}}</span>
+          <a href="/product/{{product.id}}">更多</a> <i class="material-icons tiny icon-heart">favorite</i> <span>{{product.likes}}</span>
           <span class="right price-hour">{{product.price}} | <i class="material-icons tiny">query_builder</i> {{product.required_hour}} 小時</span>
         </div>
       </div>
